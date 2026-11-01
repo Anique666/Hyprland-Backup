@@ -63,7 +63,7 @@
               },
               {
                   "label": "󰌾",
-                  "command": "bash -c $HOME/.config/hypr/scripts/hyprlock.sh"
+                  "command": "hyprlock"
               },
               {
                   "label": "󰍃",
