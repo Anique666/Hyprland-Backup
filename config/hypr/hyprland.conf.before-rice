@@ -1,0 +1,130 @@
+# =========================
+# Hyprland - Minimal Config
+# =========================
+
+# ---- Variables ----
+$terminal = kitty
+$menu = wofi --show drun
+$fileManager = thunar
+
+#
+exec-once =sleep 2 &&  waybar
+exec-once = hyprpaper
+exec-once = mako
+exec-once = hypridle
+exec-once = nm-applet
+exec-once = blueman-applet
+exec-once = $HOME/.config/hypr/scripts/waybar_auto_hide
+
+
+# ---- Monitor ----
+# Let Hyprland automatically detect the display
+monitor = , preferred, auto, 1
+
+# Brightness
+bindel = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
+bindel = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
+
+# ---- Startup ----
+# exec-once = $terminal
+
+# Clipboard history
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+bind = SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
+
+
+# ---- Environment ----
+env = XCURSOR_SIZE,24
+
+# ---- General ----
+general {
+    gaps_in = 0
+    gaps_out = 0
+    border_size = 0
+
+    layout = dwindle
+}
+
+# Volume
+bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+
+# ---- Decoration ----
+decoration {
+    rounding = 8
+
+    blur {
+        enabled = true
+        size = 3
+        passes = 1
+    }
+}
+
+# Brightness
+bindel = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
+bindel = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
+
+
+# ---- Input ----
+input {
+    kb_layout = us
+
+    follow_mouse = 1
+
+    touchpad {
+        natural_scroll = true
+    }
+}
+
+# ---- Keybinds ----
+
+# Terminal
+bind = SUPER, Return, exec, $terminal
+
+# Application launcher
+bind = SUPER, D, exec, $menu
+
+# File manager
+bind = SUPER, E, exec, $fileManager
+
+# Close window
+bind = SUPER, Q, killactive
+
+# Reload configuration
+bind = SUPER, R, exec, hyprctl reload
+
+# Exit Hyprland
+bind = SUPER, M, exit
+
+# Move focus
+bind = SUPER, left, movefocus, l
+bind = SUPER, right, movefocus, r
+bind = SUPER, up, movefocus, u
+bind = SUPER, down, movefocus, d
+
+# Move window
+bind = SUPER SHIFT, left, movewindow, l
+bind = SUPER SHIFT, right, movewindow, r
+bind = SUPER SHIFT, up, movewindow, u
+bind = SUPER SHIFT, down, movewindow, d
+
+# Workspace switching
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+bind = SUPER, 5, workspace, 5
+
+# Move window to workspace
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
+
+# Mouse window movement
+bindm = SUPER, mouse:272, movewindow
+bindm = SUPER, mouse:273, resizewindow

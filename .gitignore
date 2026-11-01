@@ -1,0 +1,19 @@
+# Git hygiene for the backup repository
+# Never publish clipboard content, caches or credentials.
+cliphist/
+*.db
+cache/
+.cache/
+logs/
+*.log
+*.tmp
+*.swp
+favicon.ico
+
+# large binary artifacts that do not belong in a config repo
+*.mp4
+*.avi
+*.mkv
+
+# runtime captures are informational; keep them small
+# (binds.json / clients.json are committed intentionally as baseline evidence)

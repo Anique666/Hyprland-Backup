@@ -1,0 +1,68 @@
+{
+"eDP-1": {
+    "levels": {
+
+        "0": [
+                {
+                    "address": "0x55705bc79df0",
+                    "x": 0,
+                    "y": 0,
+                    "w": 1920,
+                    "h": 1080,
+                    "alpha": 1,
+                    "namespace": "awww-daemon",
+                    "pid": 1936
+                }
+        ],
+        "1": [
+                {
+                    "address": "0x55705c4e31f0",
+                    "x": 8,
+                    "y": 3,
+                    "w": 1904,
+                    "h": 32,
+                    "alpha": 1,
+                    "namespace": "waybar",
+                    "pid": 1935
+                }
+        ],
+        "2": [
+],
+        "3": [
+]
+    }
+},"HDMI-A-1": {
+    "levels": {
+
+        "0": [
+                {
+                    "address": "0x55705be4b790",
+                    "x": 1920,
+                    "y": 0,
+                    "w": 1920,
+                    "h": 1080,
+                    "alpha": 1,
+                    "namespace": "awww-daemon",
+                    "pid": 1936
+                }
+        ],
+        "1": [
+                {
+                    "address": "0x55705bfb5900",
+                    "x": 1928,
+                    "y": 3,
+                    "w": 1904,
+                    "h": 32,
+                    "alpha": 1,
+                    "namespace": "waybar",
+                    "pid": 1935
+                }
+        ],
+        "2": [
+],
+        "3": [
+]
+    }
+}
+}
+

@@ -1,0 +1,1 @@
+/home/anique/.config/hypr/scripts/brightness.sh
