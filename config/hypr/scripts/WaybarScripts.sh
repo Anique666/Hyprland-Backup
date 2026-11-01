@@ -7,6 +7,12 @@ case "${1:-}" in
 		fi
 		exec /usr/bin/nm-connection-editor
 		;;
+	--btop)
+		if command -v btop >/dev/null 2>&1; then
+			exec kitty -e btop
+		fi
+		exit 1
+		;;
 	*)
 		exit 1
 		;;

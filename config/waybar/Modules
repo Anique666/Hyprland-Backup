@@ -19,7 +19,6 @@
 	"format-icons": [
 		"󰈸"
 	],
-	"on-click-right": "$HOME/.config/hypr/scripts/WaybarScripts.sh --nvtop"
 },
 
 "backlight": {
@@ -80,7 +79,6 @@
 	"format-time": "{H}h {M}min",
 	"tooltip": true,
 	"tooltip-format": "{timeTo} {power}w",
-	"on-click-middle": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/Wlogout.sh",
 },
 
@@ -96,7 +94,7 @@
 },
 
 "clock": {
-	"interval": 1,
+	"interval": 60,
     "format": "{:%I:%M %p}", // AM PM format
     //"format": " {:%H:%M:%S}",// 24H
 	"format-alt": "{:%I:%M %p   %Y, %d %B, %A}",

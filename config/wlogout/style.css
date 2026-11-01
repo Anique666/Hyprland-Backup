@@ -1,10 +1,10 @@
+@import '../../.config/waybar/colors.css';
+
 * {
     background-image: none;
     font-size: 20px;
-    font-family: "JetBrains Mono NFM";
+    font-family: "Adwaita Sans";
 }
-
-@import '../../.config/waybar/colors.css';
 
 window {
     background-color: rgba(17, 17, 17, 0.45);
