@@ -36,3 +36,10 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * wlogout launched and closed cleanly with fixed CSS import order (start/stop verified; visual glyph check left for user).
   Files: matugen/config.toml, matugen/templates/{hyprland-colors.conf,
   midnight-discord.css→deleted, spotify-colors.ini→deleted}, hypr/colors.conf (regenerated, single $image), hypr/scripts/wppicker.sh.
+- 2026-11-01 23:20 — Stage 7 (systemd startup ownership + SwayNC conflict cleanup):
+  * Waybar and hyprpolkitagent moved to their packaged systemd user units (enabled in graphical-session.target; vendor units untouched). Corresponding exec-once launches removed in the same batch; verified exactly one process per daemon (waybar, hypridle, hyprpolkitagent, swaync — all active, single PID each).
+  * awww-daemon, nm-applet, blueman-applet, keyring, dbus-update-activation-environment, cliphist watchers remain exec-once per the approved ownership table.
+  * nm-applet/blueman-applet re-registered with the SNI watcher after restart (both items listed; blueman's warnings are its standard X11-only plugin skips).
+  * ModulesGroups: removed groups referencing deleted modules (app_drawer, status, power, power#vert). motherboard/mobo_drawer/laptop/audio/notify retained (all valid).
+  * swaync themes/control_center.css: duplicate token definitions shared with notifications.css namespaced to cc_*; the undefined @color1 in cc_background_alt replaced with @surface. notifications.css tokens kept as the winning cascade. swaync restarted clean (no color warnings); test notification rendered.
+  Files: hypr/hyprland.conf, waybar/ModulesGroups, swaync/themes/control_center.css, systemd wants symlinks (waybar, hyprpolkitagent).
