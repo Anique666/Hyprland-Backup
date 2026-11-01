@@ -20,12 +20,6 @@
 	"tooltip-format": "Launch Browser",
 },
 
-// This is a custom cava visualizer
-"custom/cava_mviz": {
-	"exec": "$HOME/.config/hypr/scripts/waybarcava.sh",
-	"format": "{}"
-},
-
 "custom/playerctl": {
 	"format": "<span>{}</span>",
 	"return-type": "json",

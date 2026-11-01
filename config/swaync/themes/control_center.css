@@ -1,11 +1,11 @@
-@define-color text            @on_surface;
-@define-color background-alt  alpha(@color1, .4);
-@define-color selected        @outline;
-@define-color hover           alpha(@selected, 1);
-@define-color urgent          @error;
+@define-color cc_text            @on_surface;
+@define-color cc_background_alt  alpha(@surface, .4);
+@define-color cc_selected        @outline;
+@define-color cc_hover           alpha(@cc_selected, 1);
+@define-color cc_urgent          @error;
 
 * {
-  color:            @text;
+  color:            @cc_text;
 
   all: unset;
   font-size: 14px;
@@ -24,7 +24,7 @@
 .control-center {
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 24px;
-  border: 1px solid @selected;
+  border: 1px solid @cc_selected;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
   margin: 18px;
   padding: 12px;
@@ -34,14 +34,14 @@
 .control-center .notification-row .notification-background,
 .control-center .notification-row .notification-background .notification.critical {
   background-color: @on_secondary_fixed;
-  border: 1px solid @hover;
+  border: 1px solid @cc_hover;
   border-radius: 16px;
   margin: 4px 0px;
   padding: 4px;
 }
 
 .control-center .notification-row .notification-background .notification.critical {
-  color: @urgent;
+  color: @cc_urgent;
 }
 
 .control-center .notification-row .notification-background .notification .notification-content {
@@ -54,18 +54,18 @@
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
-  background: alpha(@selected, .6);
-  color: @text;
+  background: alpha(@cc_selected, .6);
+  color: @cc_text;
   border-radius: 12px;
   margin: 6px;
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
-  background: @selected;
+  background: @cc_selected;
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
-  background-color: @selected;
+  background-color: @cc_selected;
 }
 
 /* Buttons */
@@ -73,17 +73,17 @@
 .control-center .notification-row .notification-background .close-button {
   background: transparent;
   border-radius: 6px;
-  color: @text;
+  color: @cc_text;
   margin: 0px;
   padding: 4px;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  background-color: @selected;
+  background-color: @cc_selected;
 }
 
 .control-center .notification-row .notification-background .close-button:active {
-  background-color: @selected;
+  background-color: @cc_selected;
 }
 
 progressbar,
@@ -105,18 +105,18 @@ progressbar {
 .notification-group-headers {
   font-weight: bold;
   font-size: 1.25rem;
-  color: @text;
+  color: @cc_text;
   letter-spacing: 2px;
 }
 
 .notification-group-icon {
-  color: @text;
+  color: @cc_text;
 }
 
 .notification-group-collapse-button,
 .notification-group-close-all-button {
   background: transparent;
-  color: @text;
+  color: @cc_text;
   margin: 4px; 
   border-radius: 6px;
   padding: 4px;
@@ -124,7 +124,7 @@ progressbar {
 
 .notification-group-collapse-button:hover,
 .notification-group-close-all-button:hover {
-  background: @hover;
+  background: @cc_hover;
 }  
 
 /* WIDGETS --------------------------------------------------------------------------- */
@@ -136,17 +136,17 @@ progressbar {
 }
 
 .widget-title button {
-  background: alpha(@hover, .50);
+  background: alpha(@cc_hover, .50);
   border-radius: 6px;
   padding: 4px 16px;
 }
 
 .widget-title button:hover {
-  background-color: @hover;
+  background-color: @cc_hover;
 }
 
 .widget-title button:active {
-  background-color: @selected;
+  background-color: @cc_selected;
 }
 
   /* Do not disturb */
@@ -156,7 +156,7 @@ progressbar {
 }
 
 .widget-dnd > switch {
-  background: alpha(@hover, .50);
+  background: alpha(@cc_hover, .50);
   font-size: initial;
   border-radius: 8px;
   box-shadow: none;
@@ -164,19 +164,19 @@ progressbar {
 }
 
 .widget-dnd > switch:hover {
-  background: @hover;
+  background: @cc_hover;
 }
 
 .widget-dnd > switch:checked {
-  background: @selected;
+  background: @cc_selected;
 }
 
 .widget-dnd > switch:checked:hover {
-  background: @hover;
+  background: @cc_hover;
 }
 
 .widget-dnd > switch slider {
-  background: @text;
+  background: @cc_text;
   border-radius: 6px;
 }
 
@@ -186,7 +186,7 @@ progressbar {
   padding: 6px 2px;
   margin: 6px;
   border-radius: 12px;
-  background: alpha(@hover, .50);
+  background: alpha(@cc_hover, .50);
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
@@ -197,15 +197,15 @@ progressbar {
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background: @hover;
+  background: @cc_hover;
 }
 
 
   /* Music player */
 .widget-mpris {
-    background: alpha(@hover, .50);
+    background: alpha(@cc_hover, .50);
     border-radius: 16px;
-    color: @text;
+    color: @cc_text;
     margin:  20px 6px;
 }
 
@@ -218,16 +218,16 @@ progressbar {
 }
 
 .widget-mpris > box > button {
-  color: @text;
+  color: @cc_text;
   border-radius: 20px;
 }
  
 .widget-mpris button {
-  color: alpha(@text, .6);
+  color: alpha(@cc_text, .6);
 }
 
 .widget-mpris button:hover {
-  color: @text;
+  color: @cc_text;
 }
 
 .widget-mpris-album-art {
