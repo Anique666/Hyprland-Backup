@@ -43,3 +43,11 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * ModulesGroups: removed groups referencing deleted modules (app_drawer, status, power, power#vert). motherboard/mobo_drawer/laptop/audio/notify retained (all valid).
   * swaync themes/control_center.css: duplicate token definitions shared with notifications.css namespaced to cc_*; the undefined @color1 in cc_background_alt replaced with @surface. notifications.css tokens kept as the winning cascade. swaync restarted clean (no color warnings); test notification rendered.
   Files: hypr/hyprland.conf, waybar/ModulesGroups, swaync/themes/control_center.css, systemd wants symlinks (waybar, hyprpolkitagent).
+- 2026-11-01 23:40 — Stage 8 (cliphist privacy and retention):
+  * Confirmed cliphist 0.7.0 uses a BoltDB at ~/.cache/cliphist/db (40 MB, mode 644), already saturated at the default 750-item cap (found via `cliphist list | wc -l`).
+  * DB backup taken to backup_november/cliphist/db.bak-20261101 (EXCLUDED from git via .gitignore — clipboard contents must never reach GitHub).
+  * chmod 600 applied to the live db (was 644; parent dir 0700 already mitigated exposure but tightened per spec).
+  * Created ~/.config/cliphist/config with explicit `max-items 750`. Config-file format verified empirically on a throwaway DB copy (store x5 → exactly 3 items with max-items 3; live DB untouched). Note: the '=' syntax silently parses as an unknown key — space syntax is required (documented from upstream readme).
+  * New watcher wrapper cliphist-store-watch.sh (umask 077) replaces the raw wl-paste watchers so a recreated DB is also 0600; both text and image watchers re-running with the wrapper. No timer/service introduced: cliphist's max-items bound is the retention mechanism; 0.7.0 has no age-based pruning commands (delete/delete-query/wipe only), so periodic age-pruning would require new machinery — deferred as unjustified.
+  * Live tests: store lands in list (2 new test entries), decode round-trip verified, permission mode 600. Selection via SUPER+C UI requires user verification.
+  Files: hypr/hyprland.conf (exec-once wrappers), hypr/scripts/cliphist-store-watch.sh (new), ~/.config/cliphist/config (new).
