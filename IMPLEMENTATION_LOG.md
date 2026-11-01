@@ -25,4 +25,14 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * Pruned from ModulesCustom every module with a broken dependency chain: weather, tty, settings, cycle_wall, hint, dot_update, hypridle, keyboard, light_dark, lock (LockScreen.sh), menu (rofi), updater (Arch-only checkupdates). Functional-but-inactive modules (file_manager, browser, cava_mviz, playerctl, quit/reboot, swaync, separators/arrows) retained for later pruning review.
   * wppicker.sh rewritten for wofi: lists wallpapers sorted, validates selection, runs `matugen image` on the candidate BEFORE swapping the symlink; empty selection exits 0 and leaves current wallpaper untouched (verified). No caller existed; retained as standalone utility per audit decision.
   * Waybar restarted with zero parse errors.
-  Files: 5 scripts deleted, hypr/scripts/wppicker.sh, waybar/ModulesCustom.
+  Files: 5 scripts deleted, hypr/scripts/wppicker.sh, waybar/ModulesCustom. Commit b143056.
+- 2026-11-01 23:05 — Stage 6 (Matugen consolidation):
+  * Verified live behavior of the spicetify template: spicetify is installed and Spotify in use, but `current_theme = Dribbblish` / `color_scheme = lunar` — the Matugen template writes to Themes/text/color.ini, which is NOT the active theme. Removed the dead spicetify template (re-addable if theme "text" is ever activated; recoverable from git main). Decision recorded as an audit item.
+  * Removed vesktop template (Vesktop not installed) and the dangling rofi template entry (rofi not installed; rofi-colors.rasi never existed on disk).
+  * Fixed hyprland template so `$image` is emitted once (was repeated before every color variable).
+  * Made kitty/cava reload hooks failure-tolerant (cava not running no longer makes the whole generation fail with an error).
+  * Discovered and fixed a latent pipeline bug: `matugen image` on most wallpapers aborts with "multiple source colors" when run non-interactively — meaning the old wppicker path could never update wallpaper deterministically. Added `--prefer=darkness` to wppicker.sh after verifying it reproduces the exact existing source color (#3e3b47).
+  * Full regeneration test with the current wallpaper: matugen exit 0, all generated consumer files byte-identical to their previous md5 (hypr colors.conf, waybar colors.css, gtk-3.0/colors.css, kitty colors.conf, cava config). Appearance unchanged by design; generators now writable by script.
+  * wlogout launched and closed cleanly with fixed CSS import order (start/stop verified; visual glyph check left for user).
+  Files: matugen/config.toml, matugen/templates/{hyprland-colors.conf,
+  midnight-discord.css→deleted, spotify-colors.ini→deleted}, hypr/colors.conf (regenerated, single $image), hypr/scripts/wppicker.sh.

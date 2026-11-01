@@ -19,7 +19,10 @@ SELECTED_PATH=$(wofi --dmenu --prompt 'Wallpaper' \
 [ -n "$SELECTED_PATH" ] && [[ -f "$SELECTED_PATH" ]] || exit 0
 
 # Validate the candidate: generate colors from it BEFORE switching.
-if ! matugen image "$SELECTED_PATH"; then
+# --prefer is required on this machine: some wallpapers have multiple extractable
+# colors and matugen 4.x aborts without a preference. darkness reproduces the
+# existing palette (previous source color was #3e3b47).
+if ! matugen image --prefer=darkness "$SELECTED_PATH"; then
 	notify-send -u low -i "$HOME/.config/swaync/images/lock.png" "Wallpaper" "Matugen failed - wallpaper unchanged" 2>/dev/null
 	exit 1
 fi
