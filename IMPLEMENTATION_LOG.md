@@ -20,3 +20,9 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * GTK: created gtk-3.0/gtk.css and gtk-4.0/gtk.css importing the Matugen colors.css (gtk.css files were missing). Visual verification pending next wallpaper change.
   * Waybar restarted and confirmed running on both outputs with no config parse errors in the log.
   Files: hypr/scripts/volume.sh, hypr/scripts/WaybarScripts.sh, waybar/config, waybar/Modules, waybar/ModulesCustom, waybar/style.css, swaync/themes/{control_center,notifications}.css, wlogout/style.css, gtk-{3,4}.0/gtk.css (new). Commit 6be7ded.
+- 2026-11-01 22:50 — Stage 5 (dead dependency cleanup):
+  * Deleted hyprlock.sh (zsh), wbrestart.sh, wbrestart.sh.bak-20260911 (zsh), WaybarLayout.sh, WaybarStyles.sh (rofi+zsh chains). All present in the backup commit; references enumerated first — only the three ModulesCustom hooks, removed with their modules.
+  * Pruned from ModulesCustom every module with a broken dependency chain: weather, tty, settings, cycle_wall, hint, dot_update, hypridle, keyboard, light_dark, lock (LockScreen.sh), menu (rofi), updater (Arch-only checkupdates). Functional-but-inactive modules (file_manager, browser, cava_mviz, playerctl, quit/reboot, swaync, separators/arrows) retained for later pruning review.
+  * wppicker.sh rewritten for wofi: lists wallpapers sorted, validates selection, runs `matugen image` on the candidate BEFORE swapping the symlink; empty selection exits 0 and leaves current wallpaper untouched (verified). No caller existed; retained as standalone utility per audit decision.
+  * Waybar restarted with zero parse errors.
+  Files: 5 scripts deleted, hypr/scripts/wppicker.sh, waybar/ModulesCustom.
