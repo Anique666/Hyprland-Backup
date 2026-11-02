@@ -19,7 +19,7 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * wlogout style.css: @import moved above all rules (GTK CSS requirement).
   * GTK: created gtk-3.0/gtk.css and gtk-4.0/gtk.css importing the Matugen colors.css (gtk.css files were missing). Visual verification pending next wallpaper change.
   * Waybar restarted and confirmed running on both outputs with no config parse errors in the log.
-  Files: hypr/scripts/volume.sh, hypr/scripts/WaybarScripts.sh, waybar/config, waybar/Modules, waybar/ModulesCustom, waybar/style.css, swaync/themes/{control_center,notifications}.css, wlogout/style.css, gtk-{3,4}.0/gtk.css (new). Commit 6be7ded.
+  Files: hypr/scripts/volume.sh, hypr/scripts/WaybarScripts.sh, waybar/config, waybar/Modules, waybar/ModulesCustom, waybar/style.css, swaync/themes/{control_center,notifications}.css, wlogout/style.css, gtk-{3,4}.0/gtk.css (new). Commit 626c2db (log previously said 6be7ded in error; corrected 2026-11-02).
 - 2026-11-01 22:50 — Stage 5 (dead dependency cleanup):
   * Deleted hyprlock.sh (zsh), wbrestart.sh, wbrestart.sh.bak-20260911 (zsh), WaybarLayout.sh, WaybarStyles.sh (rofi+zsh chains). All present in the backup commit; references enumerated first — only the three ModulesCustom hooks, removed with their modules.
   * Pruned from ModulesCustom every module with a broken dependency chain: weather, tty, settings, cycle_wall, hint, dot_update, hypridle, keyboard, light_dark, lock (LockScreen.sh), menu (rofi), updater (Arch-only checkupdates). Functional-but-inactive modules (file_manager, browser, cava_mviz, playerctl, quit/reboot, swaync, separators/arrows) retained for later pruning review.
@@ -58,3 +58,10 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * Historical backup investigation (~/storage/config-before-binnewbs placeholder of 9.4 GB): = full August snapshot incl. a 4.7 GB Chrome profile copy and 52 MB Firefox profile copy (browsing data, not configuration). Unique items not covered elsewhere preserved into backup_november/extra/config-before-binnewbs-unique/ (hyprpaper.conf, waybar/config.jsonc, waybar_auto_hide, gtk settings.ini x2, monitors.xml). CONTENTS NOT DELETED — disposition recommendation: after one manual review, remove google-chrome + mozilla trees (they are stale personal-data copies, superseded by the live profiles) and retain/archive the small config remainder off ~/.config. Awaiting user confirmation; out of scope today.
   * hyprctl configerrors empty; hyprctl reload OK.
   Files as listed above + swaync/themes/control_center.css cc_* namespacing (carried from Stage 7 rsync gap). Commit after this entry.
+- 2026-11-02 — Stage 10 (final regression and closeout):
+  * Final checks: Hyprland 0.56.2 under hyprland-uwsm unchanged; `hyprctl configerrors` empty; 0 failed user units; waybar/hypridle/swaync/hyprpolkitagent active with exactly one process each; eDP-1 ws1 + HDMI-A-1 ws2-3 mapping intact; wallpaper symlink intact; cliphist db 0600 at 750 items.
+  * Secret scan of the repository: no credentials/tokens found. cliphist DB backup confirmed git-ignored.
+  * Local and remote cleanup/november heads verified equal; main remains pristine fa0ef59 (no rewrite, no force-push).
+  * Corrected Stage 4 log hash: actual commit 626c2db (was recorded as 6be7ded).
+  * Manual/visual checks (glyphs, lock/unlock, suspend/resume, lid, SUPER+C UI, systemd persistence) are listed in CLEANUP_STATUS.md as user-required verification; none claimed as passed.
+  * No Lua migration performed or started.
