@@ -60,7 +60,7 @@ These are physical/visual checks that cannot be automated:
 
 ## Post-cleanup visual restoration (2026-11-02)
 
-- Waybar: original font (`JetBrainsMono Nerd Font Propo`) and glyphs restored; tray applets removed from the bar; clock alternate date is `Monday, 02 November, 2026`.
+- Waybar: original font (`JetBrainsMono Nerd Font Propo`) and glyphs restored; tray applets removed from the bar; clock alternate date is `Monday, 02 November, 2026`; SwayNC shows the bell only (no numeric count).
 - Hyprlock: minimal layout restored; weather and username removed; 12-hour clock with AM/PM.
 - Font dependency: Nerd Fonts v3.5.1 JetBrainsMono installed at `~/.local/share/fonts/JetBrainsMonoNerdFont/` (not tracked by git).
 - Manual checks remaining: `SUPER+L` + password, HDMI bar after exiting fullscreen, tray icon visibility.
