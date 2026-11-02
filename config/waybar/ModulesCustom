@@ -7,14 +7,14 @@
 
 {
 "custom/file_manager": {
-	"format": " ",
+	"format": " ",
 	"on-click": "xdg-open . &",
 	"tooltip": true,
 	"tooltip-format": "File Manager",
 },
 
 "custom/browser": {
-	"format": " ",
+	"format": " ",
 	"on-click": "xdg-open https://",
 	"tooltip": true,
 	"tooltip-format": "Launch Browser",
@@ -70,14 +70,14 @@
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
 	"format": "{} <span size=\"larger\">{icon}</span> ",
 	"format-icons": {
-		"notification": "<span foreground='red'><sup></sup></span>",
-		"none": "",
-		"dnd-notification": "<span foreground='red'><sup></sup></span>",
-		"dnd-none": "",
-		"inhibited-notification": "<span foreground='red'><sup></sup></span>",
-		"inhibited-none": "",
-		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-		"dnd-inhibited-none": ""
+		"notification": "<span foreground='red'><sup></sup></span>",
+		"none": "",
+		"dnd-notification": "<span foreground='red'><sup></sup></span>",
+		"dnd-none": "",
+		"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		"inhibited-none": "",
+		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+		"dnd-inhibited-none": ""
 	},
 	"return-type": "json",
 	"exec-if": "which swaync-client",
@@ -89,12 +89,12 @@
 
 // Separators
 "custom/separator#dot": {
-	"format": "",
+	"format": "",
 	"interval": "once",
 	"tooltip": false
 },
 "custom/separator#dot-line": {
-	"format": "",
+	"format": "",
 	"interval": "once",
 	"tooltip": false
 },
@@ -119,52 +119,52 @@
 	"tooltip": false
 },
 "custom/arrow1": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow2": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow3": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow4": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow5": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow6": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow7": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow8": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow9": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 },
 
 "custom/arrow10": {
-	"format": "",
+	"format": "",
 	"tooltip": false
 }
 }

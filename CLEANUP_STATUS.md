@@ -57,3 +57,10 @@ These are physical/visual checks that cannot be automated:
 - Spicetify Matugen template removed: active theme is Dribbblish/lunar, so the template fed an unused theme. Recoverable from `main` if the "text" theme is ever activated.
 - `~/backup_november/cliphist/db.bak-20261101` contains clipboard data and is intentionally git-ignored/never pushed.
 - Historial tree `~/.config/config-before-binnewbs` (9.4 GB): dominated by stale Chrome (4.7 GB) and Firefox (52 MB) profile copies. Unique small configs archived under `backup_november/extra/config-before-binnewbs-unique/`. Tree left intact pending user decision; recommended: delete `google-chrome/` and `mozilla/`, archive the small config remainder outside `~/.config`.
+
+## Post-cleanup visual restoration (2026-11-02)
+
+- Waybar: original font (`JetBrainsMono Nerd Font Propo`) and glyphs restored; tray applets removed from the bar; clock alternate date is `Monday, 02 November, 2026`.
+- Hyprlock: minimal layout restored; weather and username removed; 12-hour clock with AM/PM.
+- Font dependency: Nerd Fonts v3.5.1 JetBrainsMono installed at `~/.local/share/fonts/JetBrainsMonoNerdFont/` (not tracked by git).
+- Manual checks remaining: `SUPER+L` + password, HDMI bar after exiting fullscreen, tray icon visibility.

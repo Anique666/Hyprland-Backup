@@ -95,7 +95,7 @@
 	"interval": 60,
     "format": "{:%I:%M %p}", // AM PM format
     //"format": " {:%H:%M:%S}",// 24H
-	"format-alt": "{:%I:%M %p   %Y, %d %B, %A}",
+	"format-alt": "{:%I:%M %p   %A, %d %B, %Y}",
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
 		"mode": "year",

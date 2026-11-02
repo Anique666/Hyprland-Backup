@@ -41,7 +41,6 @@
 	"custom/separator#blank",  
 	"group/audio",
 	"bluetooth",
-	"tray",
 	"custom/separator#blank",
 	"custom/power",
 	],

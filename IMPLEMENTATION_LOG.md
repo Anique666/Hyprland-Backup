@@ -65,3 +65,9 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * Corrected Stage 4 log hash: actual commit 626c2db (was recorded as 6be7ded).
   * Manual/visual checks (glyphs, lock/unlock, suspend/resume, lid, SUPER+C UI, systemd persistence) are listed in CLEANUP_STATUS.md as user-required verification; none claimed as passed.
   * No Lua migration performed or started.
+- 2026-11-02 — Post-cleanup visual restoration:
+  * Font: installed Nerd Fonts v3.5.1 JetBrainsMono (official release, SHA-256 verified) to ~/.local/share/fonts/JetBrainsMonoNerdFont; restored Waybar font-family "JetBrainsMono Nerd Font Propo" and the original glyph formats for retained modules. CSS spacing/sizing/colors were already identical to main; only the dead #custom-cava_mviz selector remains omitted.
+  * Waybar: removed the tray module from modules-right (nm-applet/blueman no longer appear in the bar; applets still run). Clock alternate date changed from "YYYY, DD Month, Weekday" to "%A, %d %B, %Y" (Monday, 02 November, 2026); time prefix and calendar tooltip preserved.
+  * Hyprlock: removed the weather ("Feels like") and USER labels; restored the original minimal layout. Hours now use %I (12-hour) with a small inline %p AM/PM suffix on the minutes label. Today/Week fonts restored to JetBrainsMono NFM / JetBrainsMono Nerd Font (the original Week string's trailing "10" is not a resolvable family and was dropped). Phase 3 parser fixes retained (dots_rounding, no invalid grace, no unused $Scripts, 60s updates).
+  * Not touched: Hypridle, lock-before-suspend, systemd units, PAM, UWSM, logind, suspend behavior, workspace/monitor mapping, scripts.
+  * Validation: Waybar service active with one process; no JSON/CSS errors; eDP bar visually checked (all glyphs render); HDMI bar layer present but covered by fullscreen Chrome. Hyprlock statically validated only (no launch, per safety); manual SUPER+L/PAM check remains for user.
