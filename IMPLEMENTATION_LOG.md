@@ -72,3 +72,4 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * Not touched: Hypridle, lock-before-suspend, systemd units, PAM, UWSM, logind, suspend behavior, workspace/monitor mapping, scripts.
   * Validation: Waybar service active with one process; no JSON/CSS errors; eDP bar visually checked (all glyphs render); HDMI bar layer present but covered by fullscreen Chrome. Hyprlock statically validated only (no launch, per safety); manual SUPER+L/PAM check remains for user.
   * 2026-11-02 — Waybar SwayNC module: removed the numeric notification count from the format; only the bell glyph (with the red-dot indicator when notifications exist) is shown.
+  * 2026-11-04 — Waybar Spotify module: fixed the malformed playerctl format string and changed it to show only the song title (Spotify glyph + {{markup_escape(title)}}); artist text removed.

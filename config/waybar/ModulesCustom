@@ -37,7 +37,7 @@
 "custom/spotify": {
 	"format": "{}",
 	"interval": 5,
-	"exec": "playerctl --player=spotify metadata --format '<span size=\"x-large\" rise=\"-300\"></span> {{markup_escape(artist)}} - {{markup_escape(title)}}' 2>/dev/null",
+	"exec": "playerctl --player=spotify metadata --format '<span size=\"x-large\" rise=\"-300\"></span> {{markup_escape(title)}}' 2>/dev/null",
 	"max-length": 50,
 	"tooltip": true,
 	"on-click": "playerctl --player=spotify play-pause",
