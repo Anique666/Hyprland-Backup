@@ -81,9 +81,9 @@
 },
 
 "bluetooth": {
-	"format": "<span size=\"larger\"></span> ",
-	"format-disabled": "<span size=\"larger\">󰂳</span>",
-	"format-connected": "<span size=\"larger\">󰂱</span>",
+	"format": " ",
+	"format-disabled": "󰂳",
+	"format-connected": "󰂱",
 	"tooltip-format": " {device_alias}",
 	"tooltip-format-connected": "{device_enumerate}",
 	"tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
@@ -266,7 +266,7 @@
 
 "network": {
 	"format": "{ifname}",
-	"format-wifi": "<span size=\"larger\">{icon}</span>",
+	"format-wifi": "{icon}",
 	"format-ethernet": "󰌘",
 	"format-disconnected": "󰌙",
 	"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
