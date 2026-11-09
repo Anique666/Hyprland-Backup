@@ -75,3 +75,7 @@ Each entry: timestamp / files / reason / original behavior / new behavior / vali
   * 2026-11-04 — Waybar Spotify module: fixed the malformed playerctl format string and changed it to show only the song title (Spotify glyph + {{markup_escape(title)}}); artist text removed.
   * 2026-11-04 — Waybar icon alignment: removed the mixed `<span size="larger"/"x-large">` wrappers from the Spotify, SwayNC, network and Bluetooth formats so every icon renders at the same font size/baseline as the text; left, center and right pills now share a common vertical alignment.
   * 2026-11-04 — wlogout: removed `button:focus` from the highlight/hover rule so keyboard arrow navigation no longer highlights or animates icons; mouse hover is now the only trigger.
+- 2026-11-10 — Brightness keys:
+  * Replaced the direct 5% `brightnessctl` binds with `~/.config/hypr/scripts/brightness.sh` (10% steps, SwayNC progress notification with brightness icon, canonical sync ID).
+  * Diagnosed the actual panel issue: `nvidia_wmi_ec_backlight` accepts writes but reports `actual_brightness=0` at every level; the kernel log shows `amdgpu: Skipping amdgpu DM backlight registration`.
+  * System fix (not tracked in this repo): added `acpi_backlight=native` to `/etc/default/grub`, `/etc/kernel/cmdline`, and all BLS entries via `grubby`; blacklisted `nvidia_wmi_ec_backlight` in `/etc/modprobe.d/blacklist-nvidia-wmi-ec-backlight.conf`. Backups: `/etc/default/grub.bak-*`, `/etc/kernel/cmdline.bak-*`. Requires reboot; expected device after reboot is `amdgpu_bl0`.
