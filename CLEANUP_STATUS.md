@@ -29,6 +29,13 @@
 - Local `cleanup/november` == `origin/cleanup/november` at time of report.
 - `main` remains the pristine initial snapshot (fa0ef59); never rewritten.
 
+## Brightness fix (2026-11-20, verified)
+
+- After reboot, the panel backlight is `amdgpu_bl1` (raw, max 61680); `nvidia_wmi_ec_backlight` is blacklisted and no longer present.
+- `XF86MonBrightnessUp/Down` call `~/.config/hypr/scripts/brightness.sh` (10% steps + SwayNC progress notification); `actual_brightness` tracks the requested value, so the panel really dims.
+- Hypridle idle dim now uses `brightnessctl -s set 5%` (was an absolute `set 10`, which was ~0.02% on this device).
+- Kernel-side change applied outside the repo: `acpi_backlight=native` in `/etc/default/grub`, `/etc/kernel/cmdline` and all BLS entries; module blacklist in `/etc/modprobe.d/`.
+
 ## Deferred (not this phase)
 
 - Lua migration (hyprland.lua / colors.lua) — explicitly excluded; not started.
@@ -46,7 +53,7 @@ These are physical/visual checks that cannot be automated:
 4. SwayNC notification center UI and Do Not Disturb toggle.
 5. Actual suspend/resume: manual, idle (7200 s), and lid close.
 6. 600 s idle lock behavior.
-7. Brightness restore (`brightnessctl -r`) after resume.
+7. Brightness restore (`brightnessctl -r`) after resume and after the idle dim (5%).
 8. SUPER+C clipboard selection UI (store/decode pipeline already verified).
 9. Logout/login persistence of the four systemd user units.
 
